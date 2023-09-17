@@ -6,7 +6,7 @@ let mainWindow;
 
 function createSplashWindow() {
   const splashWindow = new BrowserWindow({
-    width: 430,
+    width: 400,
     height: 400,
     frame:false,
     resizable:false,
@@ -71,7 +71,7 @@ function createSplashWindow() {
 
 function createMainWindow() {
   mainWindow = new BrowserWindow({
-    width: 800,
+    width: 1000,
     height: 600,
     show: false,
     autoHideMenuBar: true,

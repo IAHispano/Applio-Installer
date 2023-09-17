@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <h1>Applio installer</h1>
+  <h1>Applio</h1>
   <h4>The solution to everything is <span>🍏</span></h4>
   <br>
   <form id="installForm">
@@ -24,14 +24,15 @@
     <h2><span class="gradiant" id="installationComplete">Applio </span>🍏 has been installed successfully!</h2>
   </div>
   <div id="installationWait" style="display: none;">
-    <h2 style="font-size: medium;">This process can take a while and may even slow down your pc.</h2>
+    <h2 style="font-size: 10px">This procedure may require a significant amount of time and could potentially result in a temporary reduction in your computer's performance...</h2>
   </div>
   <!-- BUTTONS -->
   <div class="btn-return" id="return"><i class="fas fa-arrow-left"></i></div>
   <div class="btn-next" id="next" onclick="navigateToNextPage()" style="pointer-events: none; opacity: 0.5 !important;"><i class="fas fa-arrow-right"></i></div>
 
   <script>
-    // Declarar installationCompleteDiv como variable global
+    const desktopPath = require('os').homedir() + "\\Desktop\\Applio-RVC-Fork";
+    document.getElementById("installationPath").value = desktopPath;
     const installationCompleteDiv = document.getElementById("installationComplete");
     const installationWaitDiv = document.getElementById("installationWait");
     const { spawn } = require('child_process');
@@ -50,9 +51,9 @@
     
   
     function cloneRepositoryAndExecuteBat() {
-  const repositoryUrl = "https://github.com/bygimenez/Applio_Bat_Installer.git"; 
+    const repositoryUrl = "https://github.com/IAHispano/Applio-Installer.git"; 
   const installationPath = document.getElementById("installationPath").value;
-
+  const branchName = "bat";
   if (installationPath.trim() === "") {
     alert("Please enter a valid installation path.");
     return;
@@ -60,7 +61,7 @@
   installationWaitDiv.style.display = "block";
   const consoleOutput = document.getElementById("consoleOutput");
 
-  const childProcess = spawn('git', ['clone', repositoryUrl, installationPath]);
+  const childProcess = spawn('git', ['clone', '-b', branchName, repositoryUrl, installationPath]);
 
   childProcess.stdout.on('data', (data) => {
     consoleOutput.scrollTop = consoleOutput.scrollHeight;

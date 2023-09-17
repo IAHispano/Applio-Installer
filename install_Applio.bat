@@ -2,7 +2,8 @@
 Title Applio - Installer
 setlocal
 
-set "repoUrl=https://github.com/IAHispano/Applio-RVC-Fork/archive/refs/heads/applio-recode.zip"
+
+set "repoUrl=https://github.com/IAHispano/Applio-RVC-Fork.git"
 set "repoFolder=Applio-RVC-Fork"
 set "fixesFolder=lib/fixes"
 set "localFixesPy=local_fixes.py"
@@ -31,27 +32,10 @@ cls
 for /f "delims=: tokens=*" %%A in ('findstr /b ":::" "%~f0"') do @echo(%%A
 echo.
 
-echo Creating folder for the repository...
-mkdir "%repoFolder%"
-cd "%repoFolder%"
-cls
-
-echo Downloading and extracting ZIP file...
-powershell -command "& { Invoke-WebRequest -Uri '%repoUrl%' -OutFile '%principal%\repo.zip' }"
-powershell -command "& { Add-Type -AssemblyName System.IO.Compression.FileSystem ; [System.IO.Compression.ZipFile]::ExtractToDirectory('%principal%\repo.zip', '%principal%') }"
-
-echo Copying folder and file structure from subdirectory to main directory...
-robocopy "%principal%\Applio-RVC-Fork-applio-recode" "%principal%" /E
+echo Cloning the repository...
+git clone %repoUrl% %repoFolder%
+cd %repoFolder%
 echo.
-
-echo Deleting contents of subdirectory (files and folders)...
-rmdir "%principal%\Applio-RVC-Fork-applio-recode" /S /Q
-echo.
-
-echo Cleaning up...
-del "%principal%\repo.zip"
-echo.
-cls
 
 echo Proceeding to download the models...
 echo.
@@ -142,7 +126,6 @@ echo Dependencies installed!
 echo.
 goto dependenciesFinished
 )
-
 
 :dependenciesFinished
 cls

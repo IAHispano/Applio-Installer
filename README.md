@@ -11,15 +11,17 @@
 </p>
 
 <p align="center">
-- [Introduction](#introduction)
-- [Features](#features)
-- [Getting Started](#getting-started)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Contributing](#contributing)
-- [License](#license)
+  <a href="#introduction">Introduction</a> |
+  <a href="#features">Features</a> |
+  <a href="#getting-started">Getting Started</a> |
+  <a href="#prerequisites">Prerequisites</a> |
+  <a href="#installation">Installation</a> |
+  <a href="#contributing">Contributing</a> |
+  <a href="#license">License</a>
+</p>
 
-![screenshot](https://github-production-user-asset-6210df.s3.amazonaws.com/67287120/268510590-69806933-2d99-47ed-9609-4388fd90b7eb.png)
+<p align="center">
+  <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/67287120/268510590-69806933-2d99-47ed-9609-4388fd90b7eb.png" alt="screenshot">
 </p>
 
 ## How To Use

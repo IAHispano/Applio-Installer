@@ -38,7 +38,7 @@ $ npm run start
 ```
 
 > **Note**
-> This is the way to run the application locally and contribute to the project by opening a Pull Request. If you have no programming experience just wait for the application to be released to everyone.
+> This is the way to run the application locally and contribute to the project by opening a Pull Request. If you have no programming experience [download the pre-release](https://github.com/IAHispano/Applio-Installer/releases).
 
 
 ## Introduction

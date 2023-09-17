@@ -108,3 +108,13 @@ body {
     margin-top: 150px;
     font-weight: 100;
   }
+  .warning-msg,
+  .error-msg {
+    margin: 10px auto; 
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center; 
+    max-width: 100px;
+    color: #9F6000;
+    background-color: #FEEFB3;
+  }

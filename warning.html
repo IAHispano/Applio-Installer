@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Applio Installer</title>
+  <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+  <link rel="stylesheet" href="./styles/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <h1>Applio</h1>
+  <h4>The solution to everything is <span>🍏</span></h4>
+
+  <div class="dark-theme-container">
+    <div class="warning-msg">
+        <i class="fa fa-warning"></i>
+    </div>
+  <textarea rows="12" cols="82" readonly>
+    Remember that you need to have all of this installed:
+
+
+1. (Build Tools) https://aka.ms/vs/17/release/vs_BuildTools.exe 
+
+2. (Redistribuible) https://aka.ms/vs/17/release/vc_redist.x64.exe
+
+3. (Git) https://github.com/git-for-windows/git/releases/download/v2.42.0.windows.2/Git-2.42.0.2-64-bit.exe
+
+4. (Python) https://www.python.org/ftp/python/3.9.8/python-3.9.8-amd64.exe --install-option="/AddToPath"
+
+  </textarea>
+  <div class="accept-terms-checkbox">
+    <input type="checkbox" id="accept-terms" onchange="enableInstallButton()">
+    <label for="accept-terms">I have all of this installed</label>
+  </div>
+</div>
+  <!-- BUTTONS -->
+  <div class="btn-return" id="return"><i class="fas fa-arrow-left"></i></div>
+  <div class="btn-next" id="install-button"><i class="fas fa-arrow-right"></i></div>
+<script>
+function enableInstallButton() {
+  const checkbox = document.getElementById("accept-terms");
+  const installButton = document.getElementById("install-button");
+
+  if (checkbox.checked) {
+    installButton.disabled = false;
+    installButton.style.opacity = 1;
+    installButton.style.pointerEvents = auto;
+  } else {
+    installButton.disabled = true;
+    installButton.style.opacity = 0.5;
+  }
+}
+
+enableInstallButton();
+
+document.getElementById("accept-terms").addEventListener("change", enableInstallButton);
+
+document.getElementById("install-button").addEventListener("click", function () {
+  const installButton = document.getElementById("install-button");
+  if (!installButton.disabled) {
+    window.location.href = "install.html";
+  }
+});
+
+</script>
+<script>
+    document.getElementById("return").addEventListener("click", function () {
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>

@@ -5,8 +5,6 @@
   <br>
 </h1>
 
-<h4 align="center">Create, experiment, enjoy: with Applio. Now more easy, simple and fast.</h4>
-
 <p align="center">
 </p>
 

@@ -38,7 +38,7 @@ The Applio Installer is a utility designed to simplify the installation process 
 
 - Launch Applio: Once the installation is complete, you can launch Applio directly from the installer, getting you to your creative projects faster.
 
-### Planned Features for Future Development
+## Planned Features for Future Development
 As part of the ongoing development of this fork, the following features are planned to be added:
 
 - Autoupdate: Implement automatic update functionality to keep the application up to date without manual intervention.

@@ -28,7 +28,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com), [Elec
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/bygimenez/project-marketplace.git
+$ git clone https://github.com/IAHispano/Applio-Installer.git
 
 # Install dependencies
 $ npm i

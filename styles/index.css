@@ -114,7 +114,12 @@ body {
     padding: 10px;
     border-radius: 3px;
     text-align: center; 
-    max-width: 100px;
+    max-width: 675px;
     color: #9F6000;
     background-color: #FEEFB3;
+  }
+  p {
+    color: white;
+    padding: 10px;
+
   }

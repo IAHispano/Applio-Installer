@@ -1,9 +1,16 @@
-# Applio Installer
+<h1 align="center">
+  <br>
+  <a></a>
+  Applio Installer
+  <br>
+</h1>
 
-Create, experiment, enjoy: with Applio. Now more easy, simple and fast.
+<h4 align="center">Create, experiment, enjoy: with Applio. Now more easy, simple and fast.</h4>
 
-## Table of Contents
+<p align="center">
+</p>
 
+<p align="center">
 - [Introduction](#introduction)
 - [Features](#features)
 - [Getting Started](#getting-started)
@@ -11,6 +18,28 @@ Create, experiment, enjoy: with Applio. Now more easy, simple and fast.
 - [Installation](#installation)
 - [Contributing](#contributing)
 - [License](#license)
+</p>
+
+![screenshot](https://github-production-user-asset-6210df.s3.amazonaws.com/67287120/268510590-69806933-2d99-47ed-9609-4388fd90b7eb.png)
+
+## How To Use
+
+To clone and run this application, you'll need [Git](https://git-scm.com), [Electron](https://www.electronjs.org/es/) and [NPM](https://www.npmjs.com/) installed on your computer. From your command line:
+
+```bash
+# Clone this repository
+$ git clone https://github.com/bygimenez/project-marketplace.git
+
+# Install dependencies
+$ npm i
+
+# Run the app
+$ npm run start
+```
+
+> **Note**
+> This is the way to run the application locally and contribute to the project by opening a Pull Request. If you have no programming experience just wait for the application to be released to everyone.
+
 
 ## Introduction
 

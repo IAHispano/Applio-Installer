@@ -96,7 +96,7 @@ body {
     background: radial-gradient(ellipse farthest-corner at center center, #27CF15 0%, #15B0CF 93%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-weight: 700;
+    font-weight: 1000;
   }
   .final {
     color: white;

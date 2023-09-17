@@ -12,10 +12,9 @@
 <body>
   <h1 style="font-size: 60px !important;">Create, experiment, enjoy: with <span class="gradiant">Applio</span></h1>
   <h3 style="color: white; font-weight: 200;">Applio has been <span class="gradiant">successfully</span> installed </h3>
-  <div id="installationPathDisplay" style="color: white; margin-top: 30px;">Thank you for installing Applio, we are now opening it for you to enjoy.</div>
+  <div id="installationPathDisplay" style="color: white; margin-top: 30px;"><span class="gradiant">Thank you</span> for installing <span class="gradiant">Applio</span>, we are <span class="gradiant">now opening it for you</span> to enjoy.</div>
   <!-- BUTTONS -->
   <div class="btn-return" id="return"><i class="fas fa-arrow-left"></i></div>
-  <div class="btn-next" id="next"><i class="fas fa-arrow-right"></i></div>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -26,13 +25,14 @@
       const urlParams = new URLSearchParams(queryString);
       const rutaEncoded = urlParams.get('path');
       const ruta = decodeURIComponent(rutaEncoded);
+      const folder = "Applio-RVC-Fork"
 
       if (!ruta) {
         console.error("Ruta no especificada en la URL.");
         return;
       }
 
-      const comando = `start cmd /k "python "${path.join(ruta, 'infer-web.py')}" --pycmd python --port 7897"`;
+      const comando = `start cmd /k "python "${path.join(ruta, folder, 'infer-web.py')}" --pycmd python --port 7897"`;
 
 
       exec(comando, (error, stdout, stderr) => {

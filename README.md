@@ -22,25 +22,6 @@
   <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/67287120/268510590-69806933-2d99-47ed-9609-4388fd90b7eb.png" alt="screenshot">
 </p>
 
-## How To Use
-
-To clone and run this application, you'll need [Git](https://git-scm.com), [Electron](https://www.electronjs.org/es/) and [NPM](https://www.npmjs.com/) installed on your computer. From your command line:
-
-```bash
-# Clone this repository
-$ git clone https://github.com/IAHispano/Applio-Installer.git
-
-# Install dependencies
-$ npm i
-
-# Run the app
-$ npm run start
-```
-
-> **Note**
-> This is the way to run the application locally and contribute to the project by opening a Pull Request. If you have no programming experience [download the pre-release](https://github.com/IAHispano/Applio-Installer/releases).
-
-
 ## Introduction
 
 The Applio Installer is a utility designed to simplify the installation process for Applio, a powerful software suite for creative experimentation. With this installer, you can quickly set up Applio on your system, making it easy to get started with your creative projects.
@@ -79,6 +60,24 @@ You need:
 
 4. Click the "Install" button to begin the installation process.
 
+
+## How To Use (for developers)
+
+To clone and run this application, you'll need [Git](https://git-scm.com), [Electron](https://www.electronjs.org/es/) and [NPM](https://www.npmjs.com/) installed on your computer. From your command line:
+
+```bash
+# Clone this repository
+$ git clone https://github.com/IAHispano/Applio-Installer.git
+
+# Install dependencies
+$ npm i
+
+# Run the app
+$ npm run start
+```
+
+> **Note**
+> This is the way to run the application locally and contribute to the project by opening a Pull Request. If you have no programming experience [download the pre-release](https://github.com/IAHispano/Applio-Installer/releases).
 
 ## Contributing
 

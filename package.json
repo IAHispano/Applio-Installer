@@ -6,15 +6,15 @@
       "output": "dist"
     },
     "linux": {
-      "icon": "favicon.png",
+      "icon": "images/favicon.png",
       "target": "AppImage"
     },
     "mac": {
-      "icon": "favicon.png",
+      "icon": "images/favicon.png",
       "target": "dmg"
     },
     "win": {
-      "icon": "favicon.png",
+      "icon": "images/favicon.png",
       "target": [
         {
           "arch": [
@@ -35,7 +35,7 @@
   },
   "license": "MIT",
   "main": "main.js",
-  "name": "Applio Installer",
+  "name": "Applio-Installer",
   "scripts": {
     "start": "electron ."
   },

@@ -1,33 +1,12 @@
 @echo off
-Title Applio - Installer
 setlocal
-
 
 set "repoUrl=https://github.com/IAHispano/Applio-RVC-Fork.git"
 set "repoFolder=Applio-RVC-Fork"
-set "fixesFolder=lib/fixes"
-set "localFixesPy=local_fixes.py"
 set "principal=%cd%\%repoFolder%"
+set "runtime_scripts=%cd%\%repoFolder%\runtime\Scripts"
 set "URL_BASE=https://huggingface.co/lj1995/VoiceConversionWebUI/resolve/main"
 set "URL_EXTRA=https://huggingface.co/IAHispano/applio/resolve/main"
-
-echo.
-cls
-echo INFO: It's important not to run this installer as an administrator as it might cause issues, and it's recommended to disable antivirus or firewall, as errors might occur when downloading pretrained models.
-echo.
-
-cls
-echo INFO: Please ensure you have installed the required dependencies before continuing. Refer to the installation guide for details.
-echo.
-echo Step-by-step guide: https://rentry.org/appliolocal
-echo Build Tools: https://aka.ms/vs/17/release/vs_BuildTools.exe
-echo Redistributable: https://aka.ms/vs/17/release/vc_redist.x64.exe
-echo Git: https://github.com/git-for-windows/git/releases/download/v2.42.0.windows.2/Git-2.42.0.2-64-bit.exe
-echo Python 3.9.8: https://www.python.org/ftp/python/3.9.8/python-3.9.8-amd64.exe
-echo.
-echo INFO: Its recommend installing Python 3.9.X and ensuring that it has been added to the system's path.
-echo.
-cls
 
 for /f "delims=: tokens=*" %%A in ('findstr /b ":::" "%~f0"') do @echo(%%A
 echo.
@@ -36,6 +15,7 @@ echo Cloning the repository...
 git clone %repoUrl% %repoFolder%
 cd %repoFolder%
 echo.
+cls
 
 echo Proceeding to download the models...
 echo.
@@ -107,14 +87,31 @@ echo Downloading the ffmpeg.exe and ffprobe.exe file...
 curl -LJO "%URL_BASE%/ffmpeg.exe"
 curl -LJO "%URL_BASE%/ffprobe.exe"
 
+@echo off
+setlocal
+
+echo Downloading torchcrepe
+mkdir temp_torchcrepe
 echo.
+
+echo Clone the GitHub repository to the temporary directory
+git clone --depth 1 https://github.com/maxrmorrison/torchcrepe.git temp_torchcrepe
+
+echo Copy the "torchcrepe" folder and its contents to the current directory
+robocopy "temp_torchcrepe\torchcrepe" ".\torchcrepe" /E
+echo.
+
+echo Remove the temporary directory
+rmdir /s /q temp_torchcrepe
+echo.
+
+echo Torchcrepe downloaded successfully!
 cls
-cd assets
 
 echo Installing dependencies...
 
 cls
-pip install -r requirements/requirements.txt
+pip install -r assets/requirements/requirements.txt
 echo.
 pip uninstall torch torchvision torchaudio -y
 echo.
@@ -128,18 +125,7 @@ goto dependenciesFinished
 )
 
 :dependenciesFinished
-cls
-cd ".."
-echo Checking if the local_fixes.py file exists in the Fixes folder...
-if exist "%fixesFolder%\%localFixesPy%" (
-    echo Running the file...
-    python "%fixesFolder%\%localFixesPy%"
-) else (
-    echo The "%localFixesPy%" file was not found in the "Fixes" folder.
-)
-echo.
-
 cls 
-echo The fixes were successfully applied and Applio has been successfully downloaded, run the file go-applio.bat to run the web interface!
+echo Applio has been successfully downloaded, run the file go-applio.bat to run the web interface!
 echo.
 exit

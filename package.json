@@ -6,15 +6,15 @@
       "output": "dist"
     },
     "linux": {
-      "icon": "images/favicon.png",
+      "icon": "favicon.png",
       "target": "AppImage"
     },
     "mac": {
-      "icon": "images/favicon.png",
+      "icon": "favicon.png",
       "target": "dmg"
     },
     "win": {
-      "icon": "images/favicon.png",
+      "icon": "favicon.png",
       "target": [
         {
           "arch": [

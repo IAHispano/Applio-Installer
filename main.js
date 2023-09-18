@@ -65,7 +65,6 @@ function createSplashWindow() {
           color: white;
           font-family: 'Helvetica';
           font-weight: 400;" id="download-label"></p>
-          <progress id="download" max="100" value="0"></progress>
       </div>
   </body>
   </html>

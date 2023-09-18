@@ -37,6 +37,13 @@ The Applio Installer is a utility designed to simplify the installation process 
 
 - Launch Applio: Once the installation is complete, you can launch Applio directly from the installer, getting you to your creative projects faster.
 
+## Planned Features for Future Development
+As part of the ongoing development of this fork, the following features are planned to be added:
+
+- Autoupdate: Implement automatic update functionality to keep the application up to date without manual intervention.
+- go-applio.bat UI Launcher: Develop a graphical user interface (UI) for go-applio.bat launcher, enhancing user experience by providing an intuitive way to interact with the application.
+
+
 ## Getting Started
 
 Easy, simple and fast.

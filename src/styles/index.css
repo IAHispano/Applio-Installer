@@ -5,10 +5,10 @@ body {
   }
   h1 {
     font-size: 64px;
-    font-weight: 700;
     line-height: 114px; 
     color: white;
     height: 114px; 
+    font-weight: 600;
   }
   
   h4 {

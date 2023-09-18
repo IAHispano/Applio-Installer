@@ -17,44 +17,59 @@ function createSplashWindow() {
       contextIsolation: false
   },
     title: 'Applio',
-    icon: path.join(__dirname, 'favicon.png'),
+    icon: path.join(__dirname, 'images', 'favicon.png'),
   });
 
   splashWindow.loadURL(`data:text/html,
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Applio</title>
-        <style>
-        body {
-            background-color: black;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        
-        img {
-            width: 250px; 
-            height: auto; 
-        }
-        .fade-out {
-            opacity: 0;
-            transition: opacity 0.5s ease-out;
-          }
-        .fade-in {
-        opacity: 0;
-        transition: opacity 0.5s ease-in;
-        }
-        </style>
-    </head>
-    <body>
-        <img src="https://i.imgur.com/UYCcsNM.png" alt="Logo">
-    </body>
-    </html>
+  <html>
+  <head>
+      <meta charset="UTF-8">
+      <title>Applio</title>
+      <style>
+      body {
+          background-color: black;
+          margin: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          border-radius: 10px;
+      }
+      
+      img {
+          width: 250px; 
+          height: auto; 
+      }
+  
+      .container {
+          display: flex;
+          flex-direction: column; /* Apila los elementos verticalmente */
+          align-items: center; /* Centra los elementos horizontalmente */
+      }
+  
+      .fade-out {
+          opacity: 0;
+          transition: opacity 0.5s ease-out;
+      }
+      .fade-in {
+          opacity: 0;
+          transition: opacity 0.5s ease-in;
+      }
+      </style>
+      <script src="./update.js"></script>
+  </head>
+  <body>
+      <div class="container">
+          <img src="https://i.imgur.com/UYCcsNM.png" alt="Logo">
+          <p style="    
+          color: white;
+          font-family: 'Helvetica';
+          font-weight: 400;" id="download-label"></p>
+          <progress id="download" max="100" value="0"></progress>
+      </div>
+  </body>
+  </html>
   `);
-
   splashWindow.show();
 
   splashWindow.once('ready-to-show', () => {
@@ -77,14 +92,14 @@ function createMainWindow() {
     autoHideMenuBar: true,
     maximizable: false,
     resizable: false,
-    icon: path.join(__dirname, 'favicon.png'),
+    icon: path.join(__dirname, 'images', 'favicon.png'),
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
   }
   });
 
-  mainWindow.loadFile('index.html');
+  mainWindow.loadFile('./src/index.html');
 
   mainWindow.on('closed', () => {
     app.quit();

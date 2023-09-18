@@ -25,6 +25,9 @@
       ]
     }
   },
+  "dependencies": {
+    "uaup-js": "^0.0.22"
+  },
   "description": "Installer for Enhanced RVC Variant named Applio, now more easy, simple and fast.",
   "devDependencies": {
     "electron": "^26.2.1",
@@ -36,8 +39,5 @@
   "scripts": {
     "start": "electron ."
   },
-  "version": "2.1.0",
-  "dependencies": {
-    "uaup-js": "^0.0.22"
-  }
+  "version": "2.2.0"
 }

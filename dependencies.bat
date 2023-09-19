@@ -1,7 +1,6 @@
 @echo off
 setlocal
 
-rem Verificar si Git está instalado
 git --version >nul 2>&1
 if %errorlevel% neq 0 (
     echo Git is not installed. Git will be installed automatically.
@@ -18,7 +17,6 @@ if %errorlevel% neq 0 (
     del GitInstaller.exe
 )
 
-rem Verificar si Python está en la variable de entorno PATH
 where python >nul 2>&1
 if %errorlevel% neq 0 (
     echo Python is not in the PATH. Python will be installed automatically.
@@ -35,6 +33,38 @@ if %errorlevel% neq 0 (
     del PythonInstaller.exe
 )
 
-echo Git and Python 3.9.8 are installed.
+where cl >nul 2>&1
+if %errorlevel% neq 0 (
+    echo Visual Studio Build Tools are not installed. Build Tools will be installed automatically.
+
+    curl -Lo BuildToolsInstaller.exe https://aka.ms/vs/17/release/vs_buildtools.exe
+
+    start /wait BuildToolsInstaller.exe --quiet --wait --norestart --nocache
+
+    where cl >nul 2>&1
+    if %errorlevel% neq 0 (
+        echo Build Tools installation failed. Please install Build Tools manually and run this script again.
+    )
+
+    del BuildToolsInstaller.exe
+) 
+
+where vc_redist.x64.exe >nul 2>&1
+if %errorlevel% neq 0 (
+    echo Visual C++ Redistributable is not installed. Redistributable will be installed automatically.
+
+    curl -Lo VCRedistInstaller.exe https://aka.ms/vs/17/release/vc_redist.x64.exe
+
+    start /wait VCRedistInstaller.exe /quiet
+
+    where vc_redist.x64.exe >nul 2>&1
+    if %errorlevel% neq 0 (
+        echo Visual C++ Redistributable installation failed. Please install it manually and run this script again.
+    )
+
+    del VCRedistInstaller.exe
+) 
+
+echo Git, Python 3.9.8, and Visual Studio Build Tools are installed.
 echo Continuing with the script execution...
 echo.

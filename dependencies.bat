@@ -1,35 +1,32 @@
 @echo off
 setlocal
 
+curl -Lo BuildToolsInstaller.exe https://aka.ms/vs/17/release/vs_BuildTools.exe
+start /wait BuildToolsInstaller.exe --add Microsoft.VisualStudio.Component.VC.14.29.x86.x64 --p
 where cl >nul 2>&1
 if %errorlevel% neq 0 (
-    curl -Lo BuildToolsInstaller.exe https://aka.ms/vs/17/release/vs_BuildTools.exe
-    start /wait BuildToolsInstaller.exe --add Microsoft.VisualStudio.Component.VC.14.29.x86.x64 --p
-    where cl >nul 2>&1
-    del BuildToolsInstaller.exe
+    echo Visual C++ Build Tools installation failed. Please install them manually and run this script again.
+    exit /b 1
 )
+del BuildToolsInstaller.exe
 
+curl -Lo GitInstaller.exe https://github.com/git-for-windows/git/releases/download/v2.42.0.windows.2/Git-2.42.0.2-64-bit.exe
+start /wait GitInstaller.exe /SILENT
 git --version >nul 2>&1
 if %errorlevel% neq 0 (
-    curl -Lo GitInstaller.exe https://github.com/git-for-windows/git/releases/download/v2.42.0.windows.2/Git-2.42.0.2-64-bit.exe
-    start /wait GitInstaller.exe /SILENT
-    git --version >nul 2>&1
-    if %errorlevel% neq 0 (
-        echo Git installation failed. Please install Git manually and run this script again.
-    )
-    del GitInstaller.exe
+    echo Git installation failed. Please install Git manually and run this script again.
+    exit /b 1
 )
+del GitInstaller.exe
 
+curl -Lo PythonInstaller.exe https://www.python.org/ftp/python/3.9.8/python-3.9.8-amd64.exe
+start /wait PythonInstaller.exe /passive
 where python >nul 2>&1
 if %errorlevel% neq 0 (
-    curl -Lo PythonInstaller.exe https://www.python.org/ftp/python/3.9.8/python-3.9.8-amd64.exe
-    start /wait PythonInstaller.exe /passive
-    where python >nul 2>&1
-    if %errorlevel% neq 0 (
-        echo Python installation failed. Please install Python manually and run this script again.
-    )
-    del PythonInstaller.exe
+    echo Python installation failed. Please install Python manually and run this script again.
+    exit /b 1
 )
+del PythonInstaller.exe
 
 where VCRedistInstaller.exe >nul 2>&1
 if %errorlevel% neq 0 (
@@ -38,6 +35,6 @@ if %errorlevel% neq 0 (
     del VCRedistInstaller.exe
 )
 
-echo Git, Python 3.9.8, and Build Tools for Visual Studio are installed.
+echo Git, Python 3.9.8, Build Tools for Visual Studio, and VCRedist are installed.
 echo Continuing with the script execution...
 echo.

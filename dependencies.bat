@@ -17,21 +17,22 @@ if %errorlevel% neq 0 (
     del GitInstaller.exe
 )
 
-where python >nul 2>&1
+reg query "HKEY_LOCAL_MACHINE\Software\Python\PythonCore\3.9" >nul 2>&1
 if %errorlevel% neq 0 (
-    echo Python is not in the PATH. Python will be installed automatically.
+    echo Python is not installed. Python will be installed automatically.
 
     curl -Lo PythonInstaller.exe https://www.python.org/ftp/python/3.9.8/python-3.9.8-amd64.exe
 
     start /wait PythonInstaller.exe /passive
 
-    where python >nul 2>&1
+    reg query "HKEY_LOCAL_MACHINE\Software\Python\PythonCore\3.9" >nul 2>&1
     if %errorlevel% neq 0 (
         echo Python installation failed. Please install Python manually and run this script again.
     )
 
     del PythonInstaller.exe
 )
+
 
 where cl >nul 2>&1
 if %errorlevel% neq 0 (
@@ -47,7 +48,11 @@ if %errorlevel% neq 0 (
     )
 
     del BuildToolsInstaller.exe
-) 
+) else (
+    echo Git, Python 3.9.8, and Visual Studio Build Tools are installed.
+    echo Continuing with the script execution...
+    echo.
+)
 
 where vc_redist.x64.exe >nul 2>&1
 if %errorlevel% neq 0 (
@@ -63,7 +68,7 @@ if %errorlevel% neq 0 (
     )
 
     del VCRedistInstaller.exe
-) 
+)
 
 echo Git, Python 3.9.8, and Visual Studio Build Tools are installed.
 echo Continuing with the script execution...

@@ -40,19 +40,10 @@ if %errorlevel% neq 0 (
 
     curl -Lo BuildToolsInstaller.exe https://aka.ms/vs/17/release/vs_buildtools.exe
 
-    start /wait BuildToolsInstaller.exe /passive --wait --norestart --nocache
-
-    where cl >nul 2>&1
-    if %errorlevel% neq 0 (
-        echo Build Tools installation failed. Please install Build Tools manually and run this script again.
-    )
+    start /wait BuildToolsInstaller.exe --p
 
     del BuildToolsInstaller.exe
-) else (
-    echo Git, Python 3.9.8, and Visual Studio Build Tools are installed.
-    echo Continuing with the script execution...
-    echo.
-)
+) 
 
 where vc_redist.x64.exe >nul 2>&1
 if %errorlevel% neq 0 (
@@ -60,7 +51,7 @@ if %errorlevel% neq 0 (
 
     curl -Lo VCRedistInstaller.exe https://aka.ms/vs/17/release/vc_redist.x64.exe
 
-    start /wait VCRedistInstaller.exe /passive
+    start /wait VCRedistInstaller.exe --p
 
     where vc_redist.x64.exe >nul 2>&1
     if %errorlevel% neq 0 (

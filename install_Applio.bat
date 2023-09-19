@@ -109,7 +109,6 @@ echo Torchcrepe downloaded successfully!
 cls
 
 echo Installing dependencies...
-
 cls
 pip install -r assets/requirements/requirements.txt
 echo.

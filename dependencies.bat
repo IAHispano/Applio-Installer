@@ -40,7 +40,7 @@ if %errorlevel% neq 0 (
 
     curl -Lo BuildToolsInstaller.exe https://aka.ms/vs/17/release/vs_buildtools.exe
 
-    start /wait BuildToolsInstaller.exe --quiet --wait --norestart --nocache
+    start /wait BuildToolsInstaller.exe /passive --wait --norestart --nocache
 
     where cl >nul 2>&1
     if %errorlevel% neq 0 (
@@ -60,7 +60,7 @@ if %errorlevel% neq 0 (
 
     curl -Lo VCRedistInstaller.exe https://aka.ms/vs/17/release/vc_redist.x64.exe
 
-    start /wait VCRedistInstaller.exe /quiet
+    start /wait VCRedistInstaller.exe /passive
 
     where vc_redist.x64.exe >nul 2>&1
     if %errorlevel% neq 0 (

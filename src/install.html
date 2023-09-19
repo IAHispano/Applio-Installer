@@ -58,6 +58,7 @@
     alert("Please enter a valid installation path.");
     return;
   }
+  
   installationWaitDiv.style.display = "block";
   const consoleOutput = document.getElementById("consoleOutput");
 
@@ -79,29 +80,45 @@
     if (code === 0) {
       consoleOutput.value += "Finished cloning repository\n";
 
-      const batFilePath = `${installationPath}/install_Applio.bat`; 
+      const xBatFilePath = `${installationPath}/dependencies.bat`;
       process.chdir(installationPath);
-      const batExecution = spawn('cmd.exe', ['/c', batFilePath]);
+      const xBatExecution = spawn('cmd.exe', ['/c', xBatFilePath]);
 
-
-        batExecution.stdout.on('data', (data) => {
-          consoleOutput.value += data.toString();
-          consoleOutput.scrollTop = consoleOutput.scrollHeight;
-        });
-
-      batExecution.stderr.on('data', (data) => {
+      xBatExecution.stdout.on('data', (data) => {
         consoleOutput.value += data.toString();
         consoleOutput.scrollTop = consoleOutput.scrollHeight;
       });
 
-      batExecution.on('close', (batCode) => {
-        consoleOutput.value += `Batch file execution completed with exit code ${batCode}\n`;
+      xBatExecution.stderr.on('data', (data) => {
+        consoleOutput.value += data.toString();
+        consoleOutput.scrollTop = consoleOutput.scrollHeight;
+      });
 
-        installationWaitDiv.style.display = "none";
-        installationCompleteDiv.style.display = "block";
-        enableNextButton(); 
+      xBatExecution.on('close', (xBatCode) => {
+        consoleOutput.value += `Update dependencies process completed with exit code ${xBatCode}\n`;
 
-        sessionStorage.setItem("installationCompleted", "true");
+        const installApplioBatFilePath = `${installationPath}/install_Applio.bat`;
+        const installApplioExecution = spawn('cmd.exe', ['/c', installApplioBatFilePath]);
+
+        installApplioExecution.stdout.on('data', (data) => {
+          consoleOutput.value += data.toString();
+          consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        });
+
+        installApplioExecution.stderr.on('data', (data) => {
+          consoleOutput.value += data.toString();
+          consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        });
+
+        installApplioExecution.on('close', (installApplioCode) => {
+          consoleOutput.value += `Batch process completed with exit code ${installApplioCode}\n`;
+
+          installationWaitDiv.style.display = "none";
+          installationCompleteDiv.style.display = "block";
+          enableNextButton();
+
+          sessionStorage.setItem("installationCompleted", "true");
+        });
       });
     }
   });

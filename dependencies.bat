@@ -4,11 +4,8 @@ setlocal
 where cl >nul 2>&1
 if %errorlevel% neq 0 (
     curl -Lo BuildToolsInstaller.exe https://aka.ms/vs/17/release/vs_BuildTools.exe
-    start /wait BuildToolsInstaller.exe --add Microsoft.VisualStudio.Component.VC.14.29.x86.x64 --quiet --norestart
+    start /wait BuildToolsInstaller.exe --add Microsoft.VisualStudio.Component.VC.14.29.x86.x64 --p
     where cl >nul 2>&1
-    if %errorlevel% neq 0 (
-        echo Build Tools installation failed. Please install Build Tools manually and run this script again.
-    )
     del BuildToolsInstaller.exe
 )
 
@@ -38,9 +35,6 @@ where VCRedistInstaller.exe >nul 2>&1
 if %errorlevel% neq 0 (
     curl -Lo VCRedistInstaller.exe https://aka.ms/vs/17/release/vc_redist.x64.exe
     start /wait VCRedistInstaller.exe /quiet
-    if %errorlevel% neq 0 (
-        echo Visual C++ Redistributable installation failed. Please install it manually and run this script again.
-    )
     del VCRedistInstaller.exe
 )
 

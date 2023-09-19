@@ -43,7 +43,8 @@ The Applio Installer is a utility designed to simplify the installation process 
 ## Planned Features for Future Development
 As part of the ongoing development of this fork, the following features are planned to be added:
 
-- Make it so you don't need to download anything, just the installer.
+- Add support for AMD graphics cards.
+- Multi-language support
 - go-applio.bat UI Launcher: Develop a graphical user interface (UI) for go-applio.bat launcher, enhancing user experience by providing an intuitive way to interact with the application.
 
 

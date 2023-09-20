@@ -1,7 +1,6 @@
 <h1 align="center">
-  <br>
   <img src="https://media.discordapp.net/attachments/1139925179489853470/1152672457698848919/logotest.png?width=671&height=671" alt="logo" width="160" height="160">
-  <br></br>
+  <br>
   <a>
   </a>
   Applio Installer
@@ -9,6 +8,7 @@
 </h1>
 
 <p align="center">
+  <br>
 </p>
 
 <p align="center">
@@ -19,7 +19,7 @@
   <a href="#contributing">Contributing</a> |
   <a href="#license">License</a>
 </p>
-
+<br>
 <p align="center">
   <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/67287120/268510590-69806933-2d99-47ed-9609-4388fd90b7eb.png" alt="screenshot">
 </p>

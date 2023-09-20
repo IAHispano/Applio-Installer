@@ -97,6 +97,8 @@ This project is free and open, you can also contribute by making a [pull request
 ## License
 This project is licensed under the [MIT License](https://github.com/IAHispano/Applio-RVC-Fork/blob/main/LICENSE)
 
+<br></br>
+
 <p align="center">
   <img src="https://docs.applio.org/assets/applio.png" alt="screenshot">
 </p>

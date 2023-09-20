@@ -60,7 +60,7 @@ You need:
 
 ### Installation
 
-1. Download the installer package from the [Applio website](https://github.com/IAHispano/Applio-Installer/releases).
+1. Download the installer package from the [last release](https://github.com/IAHispano/Applio-Installer/releases).
 
 2. Run the installer executable.
 
@@ -85,7 +85,7 @@ $ npm run start
 ```
 
 > **Note**
-> This is the way to run the application locally and contribute to the project by opening a Pull Request. If you have no programming experience [download the pre-release](https://github.com/IAHispano/Applio-Installer/releases).
+> This is the way to run the application locally and contribute to the project by opening a Pull Request. If you have no programming experience [download the last release](https://github.com/IAHispano/Applio-Installer/releases).
 
 ## Contributing
 

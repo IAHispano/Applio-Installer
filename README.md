@@ -55,8 +55,6 @@ Easy, simple and fast.
 ### Prerequisites
 
 You need:
-- [Python 3.9.8](https://www.python.org/downloads/release/python-398/)
-- [Pip](https://pip.pypa.io/en/stable/getting-started/)
 - [Git](https://git-scm.com/)
 
 

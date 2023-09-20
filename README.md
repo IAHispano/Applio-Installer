@@ -1,6 +1,9 @@
 <h1 align="center">
   <br>
-  <a></a>
+  <img src="https://media.discordapp.net/attachments/1139925179489853470/1152672457698848919/logotest.png?width=671&height=671" alt="logo" width="160" height="160">
+  <br></br>
+  <a>
+  </a>
   Applio Installer
   <br>
 </h1>

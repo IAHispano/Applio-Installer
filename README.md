@@ -19,6 +19,7 @@
 
 <p align="center">
   <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/67287120/268510590-69806933-2d99-47ed-9609-4388fd90b7eb.png" alt="screenshot">
+  <img src="https://docs.applio.org/assets/applio.png" alt="screenshot">
 </p>
 
 ## Introduction

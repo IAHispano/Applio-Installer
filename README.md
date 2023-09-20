@@ -19,7 +19,6 @@
 
 <p align="center">
   <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/67287120/268510590-69806933-2d99-47ed-9609-4388fd90b7eb.png" alt="screenshot">
-  <img src="https://docs.applio.org/assets/applio.png" alt="screenshot">
 </p>
 
 ## Introduction
@@ -97,3 +96,7 @@ This project is free and open, you can also contribute by making a [pull request
 
 ## License
 This project is licensed under the [MIT License](https://github.com/IAHispano/Applio-RVC-Fork/blob/main/LICENSE)
+
+<p align="center">
+  <img src="https://docs.applio.org/assets/applio.png" alt="screenshot">
+</p>

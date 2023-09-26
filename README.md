@@ -65,7 +65,7 @@ You need:
 
 > **Note**
 > Thanks to [SUP3RMASS1VE](https://www.youtube.com/@SUP3RMASS1VE/videos), he has created a tutorial to help people with difficulties to better understand. You can watch it by [clicking here](https://youtu.be/rTSG7qDjjCA).
-
+##
 
 1. Download the installer package from the [last release](https://github.com/IAHispano/Applio-Installer/releases).
 

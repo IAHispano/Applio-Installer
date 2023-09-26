@@ -1,11 +1,14 @@
 <h1 align="center">
+  <img src="https://media.discordapp.net/attachments/1139925179489853470/1152672457698848919/logotest.png?width=671&height=671" alt="logo" width="160" height="160">
   <br>
-  <a></a>
+  <a>
+  </a>
   Applio Installer
   <br>
 </h1>
 
 <p align="center">
+  <br>
 </p>
 
 <p align="center">
@@ -16,7 +19,7 @@
   <a href="#contributing">Contributing</a> |
   <a href="#license">License</a>
 </p>
-
+<br>
 <p align="center">
   <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/67287120/268510590-69806933-2d99-47ed-9609-4388fd90b7eb.png" alt="screenshot">
 </p>
@@ -43,7 +46,8 @@ The Applio Installer is a utility designed to simplify the installation process 
 ## Planned Features for Future Development
 As part of the ongoing development of this fork, the following features are planned to be added:
 
-- Make it so you don't need to download anything, just the installer.
+- Add support for AMD graphics cards.
+- Multi-language support
 - go-applio.bat UI Launcher: Develop a graphical user interface (UI) for go-applio.bat launcher, enhancing user experience by providing an intuitive way to interact with the application.
 
 
@@ -54,14 +58,16 @@ Easy, simple and fast.
 ### Prerequisites
 
 You need:
-- [Python 3.9.8](https://www.python.org/downloads/release/python-398/)
-- [Pip](https://pip.pypa.io/en/stable/getting-started/)
 - [Git](https://git-scm.com/)
 
 
 ### Installation
 
-1. Download the installer package from the [Applio website](https://github.com/IAHispano/Applio-Installer/releases).
+> **Note**
+> Thanks to [SUP3RMASS1VE](https://www.youtube.com/@SUP3RMASS1VE/videos), he has created a tutorial to help people with difficulties to better understand. You can watch it by [clicking here](https://youtu.be/rTSG7qDjjCA).
+##
+
+1. Download the installer package from the [last release](https://github.com/IAHispano/Applio-Installer/releases).
 
 2. Run the installer executable.
 
@@ -86,7 +92,7 @@ $ npm run start
 ```
 
 > **Note**
-> This is the way to run the application locally and contribute to the project by opening a Pull Request. If you have no programming experience [download the pre-release](https://github.com/IAHispano/Applio-Installer/releases).
+> This is the way to run the application locally and contribute to the project by opening a Pull Request. If you have no programming experience [download the last release](https://github.com/IAHispano/Applio-Installer/releases).
 
 ## Contributing
 
@@ -95,3 +101,9 @@ This project is free and open, you can also contribute by making a [pull request
 
 ## License
 This project is licensed under the [MIT License](https://github.com/IAHispano/Applio-RVC-Fork/blob/main/LICENSE)
+
+<br></br>
+
+<p align="center">
+  <img src="https://docs.applio.org/assets/applio.png" alt="screenshot">
+</p>

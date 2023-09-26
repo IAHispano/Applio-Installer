@@ -97,7 +97,7 @@
       xBatExecution.on('close', (xBatCode) => {
         consoleOutput.value += `Update dependencies process completed with exit code ${xBatCode}\n`;
 
-        const installApplioBatFilePath = `${installationPath}/install_Applio.bat`;
+        const installApplioBatFilePath = `${installationPath}/install_Applio_amd.bat`;
         const installApplioExecution = spawn('cmd.exe', ['/c', installApplioBatFilePath]);
 
         installApplioExecution.stdout.on('data', (data) => {
@@ -132,7 +132,7 @@
   </script>
   <script>
     document.getElementById("return").addEventListener("click", function () {
-      window.location.href = "warning.html";
+      window.location.href = "select.html";
     });
   </script>
 </body>

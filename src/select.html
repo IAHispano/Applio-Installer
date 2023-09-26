@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Applio Installer</title>
+  <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+  <link rel="stylesheet" href="./styles/index.css">
+  <link rel="stylesheet" href="./styles/select.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <h1>Applio</h1>
+  <h4>The solution to everything is <span>🍏</span></h4>
+
+  <div class="dark-theme-container">
+    <div class="accept-terms-checkbox">
+      <input type="radio" name="graphics" id="nvidia" onchange="enableInstallButton()" class="select">
+      <label for="nvidia">I have an NVIDIA graphics card.</label>
+      <input type="radio" name="graphics" id="amd" onchange="enableInstallButton()" class="select">
+      <label for="amd">I have an AMD graphics card.</label>
+    </div>
+  </div>
+
+  <!-- BUTTONS -->
+  <div class="btn-return" id="return"><i class="fas fa-arrow-left"></i></div>
+  <div class="btn-next" id="install-button" style="opacity: 0.5;"><i class="fas fa-arrow-right"></i></div>
+
+  <script>
+    function enableInstallButton() {
+      const nvidiaRadio = document.getElementById("nvidia");
+      const amdRadio = document.getElementById("amd");
+      const installButton = document.getElementById("install-button");
+
+      if (nvidiaRadio.checked) {
+        installButton.addEventListener("click", function () {
+          window.location.href = "install_nvidia.html";
+        });
+        installButton.style.opacity = 1;
+      } else if (amdRadio.checked) {
+        installButton.addEventListener("click", function () {
+          window.location.href = "install_amd.html";
+        });
+        installButton.style.opacity = 1;
+      } else {
+        installButton.style.opacity = 0.5;
+      }
+    }
+  </script>
+    <script>
+      document.getElementById("return").addEventListener("click", function () {
+        window.location.href = "warning.html";
+      });
+    </script>
+</body>
+</html>

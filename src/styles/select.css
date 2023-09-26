@@ -1,0 +1,18 @@
+.accept-terms-checkbox {
+    position: absolute;
+    right: 140px;
+    top: 40px;
+    color: white;
+  }
+  
+  .dark-theme-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  input[type="radio"] {
+    margin-bottom: 5px; 
+  }
+  

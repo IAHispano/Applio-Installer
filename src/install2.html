@@ -31,7 +31,7 @@
         return;
       }
 
-      const comando = `start cmd /k "python "${path.join(ruta, folder, 'infer-web.py')}" --pycmd python --port 7897"`;
+      const comando = `start cmd /k "python "${path.join(ruta, folder, 'infer-web.py')}" --pycmd python --port 7897 --theme dark"`;
 
 
       exec(comando, (error, stdout, stderr) => {

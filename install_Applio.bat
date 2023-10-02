@@ -16,6 +16,7 @@ echo.
 git clone %repoUrl% %repoFolder%
 cd %repoFolder%
 echo.
+echo Cloned repository, now downloading runtime.zip
 cls
 
 cls

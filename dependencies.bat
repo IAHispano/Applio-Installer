@@ -10,9 +10,6 @@ if %errorlevel% neq 0 (
     start /wait GitInstaller.exe /SILENT
 
     git --version >nul 2>&1
-    if %errorlevel% neq 0 (
-        echo Git installation failed. Please install Git manually and run this script again.
-    )
 
     del GitInstaller.exe
 )
@@ -26,9 +23,6 @@ if %errorlevel% neq 0 (
     start /wait PythonInstaller.exe /passive
 
     where python >nul 2>&1
-    if %errorlevel% neq 0 (
-        echo Python installation failed. Please install Python manually and run this script again.
-    )
 
     del PythonInstaller.exe
 )
@@ -41,7 +35,7 @@ if %errorlevel% neq 0 (
 
     start /wait BuildToolsInstaller.exe --add Microsoft.VisualStudio.Component.VC.14.29.x86.x64 --p
 
-    del PythonInstaller.exe
+    del BuildToolsInstaller.exe
 )
 
 where VCRedistInstaller.exe >nul 2>&1
@@ -52,7 +46,7 @@ if %errorlevel% neq 0 (
 
     start /wait VCRedistInstaller.exe /passive
 
-    del PythonInstaller.exe
+    del VCRedistInstaller.exe
 )
 
 echo Git, Python 3.9.8, Build Tools and VCRedlist are installed.

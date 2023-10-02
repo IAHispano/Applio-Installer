@@ -1,6 +1,8 @@
 @echo off
+Title Applio - Installer
 setlocal
 cd %~dp0
+
 
 set "repoUrl=https://github.com/IAHispano/Applio-RVC-Fork.git"
 set "repoFolder=Applio-RVC-Fork"
@@ -33,3 +35,4 @@ cls
 echo Applio has been successfully downloaded, run the file go-applio.bat to run the web interface!
 echo.
 exit
+

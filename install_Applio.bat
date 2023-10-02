@@ -1,6 +1,6 @@
 @echo off
-
 setlocal
+cd %~dp0
 
 set "repoUrl=https://github.com/IAHispano/Applio-RVC-Fork.git"
 set "repoFolder=Applio-RVC-Fork"
@@ -13,10 +13,10 @@ cls
 for /f "delims=: tokens=*" %%A in ('findstr /b ":::" "%~f0"') do @echo(%%A
 echo.
 
+echo Cloning the repository...
 git clone %repoUrl% %repoFolder%
 cd %repoFolder%
 echo.
-echo Cloned repository, now downloading runtime.zip
 cls
 
 cls

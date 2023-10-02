@@ -1,5 +1,6 @@
 @echo off
 setlocal
+cd %~dp0
 
 set "repoUrl=https://github.com/IAHispano/Applio-RVC-Fork.git"
 set "repoFolder=Applio-RVC-Fork"
@@ -12,17 +13,19 @@ cls
 for /f "delims=: tokens=*" %%A in ('findstr /b ":::" "%~f0"') do @echo(%%A
 echo.
 
+echo Cloning the repository...
 git clone %repoUrl% %repoFolder%
 cd %repoFolder%
 echo.
 cls
 
 cls
-powershell -command "Invoke-WebRequest -Uri %URL_EXTRA%/runtime_dml.zip -OutFile runtime_dml.zip"
+powershell -command "Invoke-WebRequest -Uri %URL_EXTRA%/runtime.zip -OutFile runtime.zip"
 echo.
-powershell -command "& { Add-Type -AssemblyName System.IO.Compression.FileSystem ; [System.IO.Compression.ZipFile]::ExtractToDirectory('runtime_dml.zip', '%principal%') }"
+echo Extracting the runtime.zip file...
+powershell -command "& { Add-Type -AssemblyName System.IO.Compression.FileSystem ; [System.IO.Compression.ZipFile]::ExtractToDirectory('runtime.zip', '%principal%') }"
 echo.
-del runtime_dml.zip
+del runtime.zip
 cls
 echo.
 

@@ -29,11 +29,12 @@
   <!-- BUTTONS -->
   <div class="btn-return" id="return"><i class="fas fa-arrow-left"></i></div>
   <div class="btn-next" id="next" onclick="navigateToNextPage()" style="pointer-events: none; opacity: 0.5 !important;"><i class="fas fa-arrow-right"></i></div>
+  <a onclick="navigateToNextPage()">profile</a>
 
   <script>
-    const desktopPath = require('os').homedir() + "\\Desktop\\Applio-RVC-Fork";
+    const desktopPath = require('os').homedir() + "\\Desktop";
     document.getElementById("installationPath").value = desktopPath;
-	const { spawn } = require('child_process');
+	  const { spawn } = require('child_process');
     const axios = require('axios');
     const fs = require('fs');
     const installationCompleteDiv = document.getElementById("installationComplete");

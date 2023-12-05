@@ -25,15 +25,16 @@
       const rutaEncoded = urlParams.get('path');
       const ruta = decodeURIComponent(rutaEncoded);
       const folder = "Applio-RVC-Fork"
-      const CONDA_ROOT_PREFIX = "%UserProfile%/Miniconda3"
-      const INSTALL_ENV_DIR="%cd%/env"
+      const condaroot = "%UserProfile%/Miniconda3"
+      const installdir= `${ruta}/${folder}`
+      const installenvdir= `${installdir}/env`
 
       if (!ruta) {
         console.error("Ruta no especificada en la URL.");
         return;
       }
 
-      const comando = `start cmd /k "call "${CONDA_ROOT_PREFIX}/condabin/conda.bat" activate "${INSTALL_ENV_DIR}" && python "${path.join(ruta, folder, 'infer-web.py')}" --pycmd python --port 7897 --theme dark"`;
+      const comando = `start cmd /k "cd "${installdir}" && call "${condaroot}/condabin/conda.bat" activate "${installenvdir}" && python "${path.join(ruta, folder, 'infer-web.py')}" --pycmd python --port 7897 --theme dark"`;
 
       exec(comando, (error, stdout, stderr) => {
         if (error) {

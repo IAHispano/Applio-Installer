@@ -38,6 +38,7 @@
   "name": "Applio-Installer",
   "scripts": {
     "start": "electron ."
+    "dist": "electron-builder"
   },
-  "version": "4.0.1"
+  "version": "5.0.0"
 }

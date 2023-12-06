@@ -27,9 +27,13 @@
   },
   "dependencies": {
     "uaup-js": "^0.0.22"
+    "axios": "^1.6.2",
+    "cross-spawn": "^7.0.3"
   },
   "description": "Installer for Enhanced RVC Variant named Applio, now more easy, simple and fast.",
   "devDependencies": {
+    "axios": "^1.6.2",
+    "cross-spawn": "^7.0.3",
     "electron": "^26.2.1",
     "electron-builder": "^24.6.4"
   },
@@ -37,7 +41,10 @@
   "main": "main.js",
   "name": "Applio-Installer",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "dist": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
   },
-  "version": "4.0.1"
+  "version": "5.0.0"
 }
+

@@ -16,7 +16,7 @@
   <form id="installForm">
     <label for="installationPath">Installation path:</label>
     <input type="text" id="installationPath" name="installationPath">
-    <button type="button" onclick="cloneRepositoryAndExecuteBat()">Install</button>
+    <button type="button" onclick="downloadAndInstall()">Install</button>
   </form>
   <br>
   <textarea id="consoleOutput" rows="12" cols="65" readonly></textarea>
@@ -31,104 +31,84 @@
   <div class="btn-next" id="next" onclick="navigateToNextPage()" style="pointer-events: none; opacity: 0.5 !important;"><i class="fas fa-arrow-right"></i></div>
 
   <script>
-    const desktopPath = require('os').homedir() + "\\Desktop\\Applio-RVC-Fork";
+    const desktopPath = require('os').homedir() + "\\Desktop";
     document.getElementById("installationPath").value = desktopPath;
+    const { spawn } = require('child_process');
+    const axios = require('axios');
+    const fs = require('fs');
     const installationCompleteDiv = document.getElementById("installationComplete");
     const installationWaitDiv = document.getElementById("installationWait");
-    const { spawn } = require('child_process');
-    
 
     function enableNextButton() {
       const nextButton = document.getElementById("next");
       nextButton.style.pointerEvents = "auto";
       nextButton.style.opacity = "1";
     }
-    
+
     function navigateToNextPage() {
-  const installationPath = document.getElementById("installationPath").value;
-  window.location.href = `install2.html?path=${encodeURIComponent(installationPath)}`;
-}
-    
-  
-    function cloneRepositoryAndExecuteBat() {
-    const repositoryUrl = "https://github.com/IAHispano/Applio-Installer.git"; 
-  const installationPath = document.getElementById("installationPath").value;
-  const branchName = "bat";
-  if (installationPath.trim() === "") {
-    alert("Please enter a valid installation path.");
-    return;
-  }
-  
-  installationWaitDiv.style.display = "block";
-  const consoleOutput = document.getElementById("consoleOutput");
+      const installationPath = document.getElementById("installationPath").value;
+      window.location.href = `install2.html?path=${encodeURIComponent(installationPath)}`;
+    }
 
-  const childProcess = spawn('git', ['clone', '-b', branchName, repositoryUrl, installationPath]);
+    async function downloadAndInstall() {
+      const downloadUrl = "https://github.com/IAHispano/Applio-RVC-Fork/releases/download/v2.0.0/install_Applio-windows.bat";
+      const installationPath = document.getElementById("installationPath").value;
+      const consoleOutput = document.getElementById("consoleOutput");
 
-  childProcess.stdout.on('data', (data) => {
-    consoleOutput.scrollTop = consoleOutput.scrollHeight;
-    consoleOutput.value += data.toString();
-  });
+      if (installationPath.trim() === "") {
+        alert("Please enter a valid installation path.");
+        return;
+      }
 
-  childProcess.stderr.on('data', (data) => {
-    consoleOutput.scrollTop = consoleOutput.scrollHeight;
-    consoleOutput.value += data.toString();
-  });
+      installationWaitDiv.style.display = "block";
 
-  childProcess.on('close', (code) => {
-    consoleOutput.value += `Cloning process completed with exit code ${code}\n`;
+      try {
+        const response = await axios.get(downloadUrl, { responseType: 'arraybuffer' });
+        const data = Buffer.from(response.data, 'binary');
 
-    if (code === 0) {
-      consoleOutput.value += "Finished cloning repository\n";
+        fs.writeFileSync(`${installationPath}/install_Applio-windows.bat`, data);
+        consoleOutput.value += "Download process completed\n";
 
-      const xBatFilePath = `${installationPath}/dependencies.bat`;
-      process.chdir(installationPath);
-      const xBatExecution = spawn('cmd.exe', ['/c', xBatFilePath]);
+        const installApplioBatFilePath = `${installationPath}/install_Applio-windows.bat`;
 
-      xBatExecution.stdout.on('data', (data) => {
-        consoleOutput.value += data.toString();
-        consoleOutput.scrollTop = consoleOutput.scrollHeight;
-      });
+        const installApplioProcess = spawn(installApplioBatFilePath, ['--manual', '--condaNVDIA']);
 
-      xBatExecution.stderr.on('data', (data) => {
-        consoleOutput.value += data.toString();
-        consoleOutput.scrollTop = consoleOutput.scrollHeight;
-      });
-
-      xBatExecution.on('close', (xBatCode) => {
-        consoleOutput.value += `Update dependencies process completed with exit code ${xBatCode}\n`;
-
-        const installApplioBatFilePath = `${installationPath}/install_Applio.bat`;
-        const installApplioExecution = spawn('cmd.exe', ['/c', installApplioBatFilePath]);
-
-        installApplioExecution.stdout.on('data', (data) => {
+        installApplioProcess.stdout.on('data', (data) => {
           consoleOutput.value += data.toString();
           consoleOutput.scrollTop = consoleOutput.scrollHeight;
         });
 
-        installApplioExecution.stderr.on('data', (data) => {
+        installApplioProcess.stderr.on('data', (data) => {
           consoleOutput.value += data.toString();
           consoleOutput.scrollTop = consoleOutput.scrollHeight;
         });
 
-        installApplioExecution.on('close', (installApplioCode) => {
+        installApplioProcess.on('close', (installApplioCode) => {
           consoleOutput.value += `Batch process completed with exit code ${installApplioCode}\n`;
+
+          fs.unlink(installApplioBatFilePath, (err) => {
+            if (err) {
+              console.error("Error deleting BAT file:", err);
+            } else {
+              console.log("BAT file deleted successfully:", installApplioBatFilePath);
+            }
+          });
 
           installationWaitDiv.style.display = "none";
           installationCompleteDiv.style.display = "block";
           enableNextButton();
-
           sessionStorage.setItem("installationCompleted", "true");
         });
-      });
+      } catch (error) {
+        console.error(error);
+        consoleOutput.value += `Error downloading file: ${error.message}\n`;
+      }
     }
-  });
-}
+
     if (sessionStorage.getItem("installationCompleted") === "true") {
       enableNextButton();
       installationCompleteDiv.style.display = "block";
     }
-  
-    
   </script>
   <script>
     document.getElementById("return").addEventListener("click", function () {

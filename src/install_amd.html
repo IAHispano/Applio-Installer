@@ -29,11 +29,12 @@
   <!-- BUTTONS -->
   <div class="btn-return" id="return"><i class="fas fa-arrow-left"></i></div>
   <div class="btn-next" id="next" onclick="navigateToNextPage()" style="pointer-events: none; opacity: 0.5 !important;"><i class="fas fa-arrow-right"></i></div>
+  <a onclick="navigateToNextPage()">profile</a>
 
   <script>
-    const desktopPath = require('os').homedir() + "\\Desktop\\Applio-RVC-Fork";
+    const desktopPath = require('os').homedir() + "\\Desktop";
     document.getElementById("installationPath").value = desktopPath;
-	const { spawn } = require('child_process');
+    const { spawn } = require('child_process');
     const axios = require('axios');
     const fs = require('fs');
     const installationCompleteDiv = document.getElementById("installationComplete");
@@ -53,6 +54,7 @@
     async function downloadAndInstall() {
       const downloadUrl = "https://github.com/aitronssesin/Applio-RVC-Fork/releases/download/a/install_Applio-windows.bat";
       const installationPath = document.getElementById("installationPath").value;
+      const consoleOutput = document.getElementById("consoleOutput");
 
       if (installationPath.trim() === "") {
         alert("Please enter a valid installation path.");
@@ -60,7 +62,6 @@
       }
 
       installationWaitDiv.style.display = "block";
-      const consoleOutput = document.getElementById("consoleOutput");
 
       try {
         const response = await axios.get(downloadUrl, { responseType: 'arraybuffer' });
@@ -71,35 +72,32 @@
 
         const installApplioBatFilePath = `${installationPath}/install_Applio-windows.bat`;
 
-        const batExecutionCommand = `"${installApplioBatFilePath}" --manual --condaDML`;
+        const installApplioProcess = spawn(installApplioBatFilePath, ['--manual', '--condaDML']);
 
-        const installApplioExecution = spawn('node', ['-e', `const { execSync } = require('child_process'); try { const result = execSync(${JSON.stringify(batExecutionCommand)}, { stdio: 'inherit' }); process.exit(0); } catch (error) { process.exit(error.status || 1); }`]);
-
-        installApplioExecution.stdout.on('data', (data) => {
+        installApplioProcess.stdout.on('data', (data) => {
           consoleOutput.value += data.toString();
           consoleOutput.scrollTop = consoleOutput.scrollHeight;
         });
 
-        installApplioExecution.stderr.on('data', (data) => {
+        installApplioProcess.stderr.on('data', (data) => {
           consoleOutput.value += data.toString();
           consoleOutput.scrollTop = consoleOutput.scrollHeight;
         });
 
-        installApplioExecution.on('close', (installApplioCode) => {
+        installApplioProcess.on('close', (installApplioCode) => {
           consoleOutput.value += `Batch process completed with exit code ${installApplioCode}\n`;
 
           fs.unlink(installApplioBatFilePath, (err) => {
-          if (err) {
-            console.error("Error deleting BAT file:", err);
-          } else {
-            console.log("BAT file deleted successfully:", installApplioBatFilePath);
-          }
+            if (err) {
+              console.error("Error deleting BAT file:", err);
+            } else {
+              console.log("BAT file deleted successfully:", installApplioBatFilePath);
+            }
           });
 
           installationWaitDiv.style.display = "none";
           installationCompleteDiv.style.display = "block";
           enableNextButton();
-
           sessionStorage.setItem("installationCompleted", "true");
         });
       } catch (error) {

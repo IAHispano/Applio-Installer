@@ -20,8 +20,8 @@
     <div class="warning-msg" id="rootC:" style="display: none;">
       <h3 style="font-size: 11px"> <i class="fa fa-warning"></i> If you are installing Applio in the C: root directory, please restart the installer as an administrator. If you have already executed the installer with admin permissions, click 'Install' again.</h3>
     </div>
-    <div class="warning-msg" id="correctRoute">
-      <h3 style="font-size: 11px"> <i class="fa fa-warning"></i> Please check that the path is correct and does not contain spaces or non-Unicode characters.</h3>
+    <div class="warning-msg" id="correctRoute" style="background-color: #cce5ff;">
+      <h3 style="font-size: 11px; color: #004085"> <i class="fa fa-info-circle"></i> Please check that the path is correct and does not contain spaces or non-Unicode characters.</h3>
     </div>
   </form>
   <br>
@@ -88,7 +88,7 @@
 
         const installApplioBatFilePath = `${installationPath}/install_Applio-windows.bat`;
 
-        const installApplioProcess = spawn(installApplioBatFilePath, ['--manual', '--condaNVDIA']);
+        const installApplioProcess = spawn(installApplioBatFilePath, ['--manual']);
 
         installApplioProcess.stdout.on('data', (data) => {
           consoleOutput.value += data.toString();
@@ -129,7 +129,7 @@
   </script>
   <script>
     document.getElementById("return").addEventListener("click", function () {
-      window.location.href = "select.html";
+      window.location.href = "index.html";
     });
   </script>
 </body>

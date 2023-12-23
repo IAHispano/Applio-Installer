@@ -111,10 +111,10 @@ body {
   .warning-msg,
   .error-msg {
     margin: 10px auto; 
-    padding: 10px;
+    padding: 5px;
     border-radius: 3px;
     text-align: center; 
-    max-width: 675px;
+    max-width: 500px;
     color: #9F6000;
     background-color: #FEEFB3;
   }

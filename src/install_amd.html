@@ -17,6 +17,9 @@
     <label for="installationPath">Installation path:</label>
     <input type="text" id="installationPath" name="installationPath">
     <button type="button" onclick="downloadAndInstall()">Install</button>
+    <div class="warning-msg" id="rootC:" style="display: none;">
+      <h3 style="font-size: 11px"> <i class="fa fa-warning"></i> If you are going to install Applio in the C: root directory please restart the installer as admin if you already executed the installer with admin perms click install again</h3>
+    </div>
   </form>
   <br>
   <textarea id="consoleOutput" rows="12" cols="65" readonly></textarea>
@@ -38,6 +41,7 @@
     const fs = require('fs');
     const installationCompleteDiv = document.getElementById("installationComplete");
     const installationWaitDiv = document.getElementById("installationWait");
+    var installButtonPressed = 0
 
     function enableNextButton() {
       const nextButton = document.getElementById("next");
@@ -54,6 +58,15 @@
       const downloadUrl = "https://github.com/IAHispano/Applio-RVC-Fork/releases/download/v2.0.0/install_Applio-windows.bat";
       const installationPath = document.getElementById("installationPath").value;
       const consoleOutput = document.getElementById("consoleOutput");
+      
+      if (document.getElementById("installationPath").value === "C:" && installButtonPressed === 0) {
+        document.getElementById("rootC:").style.display = "block";
+        installButtonPressed = installButtonPressed + 1;
+        consoleOutput.value += installButtonPressed;
+        return
+      } else {
+        document.getElementById("rootC:").style.display = "none";
+      }
 
       if (installationPath.trim() === "") {
         alert("Please enter a valid installation path.");

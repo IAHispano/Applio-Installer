@@ -16,15 +16,17 @@
   <div class="dark-theme-container">
     <div class="accept-terms-checkbox">
       <input type="radio" name="graphics" id="nvidia" onchange="enableInstallButton()" class="select">
-      <label for="nvidia">I have an NVIDIA graphics card.</label>
-      <input type="radio" name="graphics" id="amd" onchange="enableInstallButton()" class="select">
-      <label for="amd">I have an AMD graphics card.</label>
+      <label for="nvidia">NVDIA Method (Universal)</label>
+      <h3 style="font-size: 10px; margin-top: -5px;     margin-bottom: 15px; ">If you have a different graphics card you will not be able to use it for training</h3>
+      <input type="radio" name="graphics" id="amd" onchange="enableInstallButton()" class="select" disabled>
+      <label for="amd" style="text-decoration-line: line-through">I have an AMD graphics card.</label>
     </div>
   </div>
 
   <!-- BUTTONS -->
   <div class="btn-return" id="return"><i class="fas fa-arrow-left"></i></div>
   <div class="btn-next" id="install-button" style="opacity: 0.5;"><i class="fas fa-arrow-right"></i></div>
+
 
   <script>
     function enableInstallButton() {
@@ -49,7 +51,7 @@
   </script>
     <script>
       document.getElementById("return").addEventListener("click", function () {
-        window.location.href = "select.html";
+        window.location.href = "index.html";
       });
     </script>
 </body>

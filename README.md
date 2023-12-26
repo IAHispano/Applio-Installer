@@ -14,7 +14,6 @@
 <p align="center">
   <a href="#introduction">Introduction</a> |
   <a href="#features">Features</a> |
-  <a href="#prerequisites">Prerequisites</a> |
   <a href="#installation">Installation</a> |
   <a href="#contributing">Contributing</a> |
   <a href="#license">License</a>
@@ -55,16 +54,11 @@ As part of the ongoing development of this fork, the following features are plan
 
 Easy, simple and fast.
 
-### Prerequisites
-
-You need:
-- [Git](https://git-scm.com/)
-
 
 ### Installation
 
-> **Note**
-> Thanks to [SUP3RMASS1VE](https://www.youtube.com/@SUP3RMASS1VE/videos), he has created a tutorial to help people with difficulties to better understand. You can watch it by [clicking here](https://youtu.be/rTSG7qDjjCA).
+> [!NOTE]
+> ~~Thanks to [SUP3RMASS1VE](https://www.youtube.com/@SUP3RMASS1VE/videos), he has created a tutorial to help people with difficulties to better understand. You can watch it by [clicking here](https://youtu.be/rTSG7qDjjCA)~~ Outdated (the installer is more simple than before).
 ##
 
 1. Download the installer package from the [last release](https://github.com/IAHispano/Applio-Installer/releases).
@@ -72,6 +66,9 @@ You need:
 2. Run the installer executable.
 
 3. Follow the on-screen instructions to choose the installation path and configure any optional settings.
+
+> [!CAUTION]
+> In the installation path **do not** use an external drive or if you are going to install applio in your C: root directory restart the applio installer with admin perms. (The installer advises you if you change the installation path to C:)
 
 4. Click the "Install" button to begin the installation process.
 
@@ -91,7 +88,7 @@ $ npm i
 $ npm run start
 ```
 
-> **Note**
+> [!NOTE]
 > This is the way to run the application locally and contribute to the project by opening a Pull Request. If you have no programming experience [download the last release](https://github.com/IAHispano/Applio-Installer/releases).
 
 ## Contributing

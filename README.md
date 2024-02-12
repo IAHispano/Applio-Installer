@@ -1,9 +1,11 @@
+`Development Branch` `New version` 
+
 <h1 align="center">
-  <img src="https://media.discordapp.net/attachments/1139925179489853470/1152672457698848919/logotest.png?width=671&height=671" alt="logo" width="160" height="160">
+  <img src="https://i.imgur.com/RldonPl.png" alt="logo" width="160" height="160">
   <br>
   <a>
   </a>
-  Applio Installer
+  Applio Installer 
   <br>
 </h1>
 
@@ -19,9 +21,6 @@
   <a href="#license">License</a>
 </p>
 <br>
-<p align="center">
-  <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/67287120/268510590-69806933-2d99-47ed-9609-4388fd90b7eb.png" alt="screenshot">
-</p>
 
 ## Introduction
 
@@ -35,7 +34,7 @@ The Applio Installer is a utility designed to simplify the installation process 
 
 - User-Friendly Interface: A user-friendly interface makes it easy for both beginners and experienced users to install Applio.
 
-- Customizable Installation Path: You can choose the installation path for Applio, allowing you to install it in the directory of your choice.
+- Customizable Installation: You can choose the installation path for Applio, allowing you to install it in the directory of your choice.
 
 - Launch Applio: Once the installation is complete, you can launch Applio directly from the installer, getting you to your creative projects faster.
 
@@ -45,9 +44,8 @@ The Applio Installer is a utility designed to simplify the installation process 
 ## Planned Features for Future Development
 As part of the ongoing development of this fork, the following features are planned to be added:
 
-- Add support for AMD graphics cards.
+- Add support for Linux/Mac OS
 - Multi-language support
-- go-applio.bat UI Launcher: Develop a graphical user interface (UI) for go-applio.bat launcher, enhancing user experience by providing an intuitive way to interact with the application.
 
 
 ## Getting Started
@@ -57,35 +55,28 @@ Easy, simple and fast.
 
 ### Installation
 
-> [!NOTE]
-> ~~Thanks to [SUP3RMASS1VE](https://www.youtube.com/@SUP3RMASS1VE/videos), he has created a tutorial to help people with difficulties to better understand. You can watch it by [clicking here](https://youtu.be/rTSG7qDjjCA)~~ Outdated (the installer is more simple than before).
-##
-
 1. Download the installer package from the [last release](https://github.com/IAHispano/Applio-Installer/releases).
 
 2. Run the installer executable.
 
 3. Follow the on-screen instructions to choose the installation path and configure any optional settings.
 
-> [!CAUTION]
-> In the installation path **do not** use an external drive or if you are going to install applio in your C: root directory restart the applio installer with admin perms. (The installer advises you if you change the installation path to C:)
-
 4. Click the "Install" button to begin the installation process.
 
 
 ## How To Use (for developers)
 
-To clone and run this application, you'll need [Git](https://git-scm.com), [Electron](https://www.electronjs.org/es/) and [NPM](https://www.npmjs.com/) installed on your computer. From your command line:
+To clone and run this application, you'll need [Git](https://git-scm.com), [Tauri](https://tauri.app/v1/guides/getting-started/prerequisites) and [PNPM](https://pnpm.io/) installed on your computer. From your command line:
 
 ```bash
 # Clone this repository
 $ git clone https://github.com/IAHispano/Applio-Installer.git
 
 # Install dependencies
-$ npm i
+$ pnpm i
 
 # Run the app
-$ npm run start
+$ pnpm run tauri dev
 ```
 
 > [!NOTE]
@@ -98,9 +89,3 @@ This project is free and open, you can also contribute by making a [pull request
 
 ## License
 This project is licensed under the [MIT License](https://github.com/IAHispano/Applio-RVC-Fork/blob/main/LICENSE)
-
-<br></br>
-
-<p align="center">
-  <img src="https://docs.applio.org/assets/applio.png" alt="screenshot">
-</p>

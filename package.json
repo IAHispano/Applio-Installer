@@ -1,50 +1,35 @@
 {
-  "author": "bydeivih and aitron",
-  "build": {
-    "appId": "applio.iahispano.com",
-    "directories": {
-      "output": "dist"
-    },
-    "linux": {
-      "icon": "favicon.png",
-      "target": "AppImage"
-    },
-    "mac": {
-      "icon": "favicon.png",
-      "target": "dmg"
-    },
-    "win": {
-      "icon": "favicon.png",
-      "target": [
-        {
-          "arch": [
-            "x64"
-          ],
-          "target": "portable"
-        }
-      ]
-    }
+  "name": "applio-installer",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "tauri": "tauri"
   },
   "dependencies": {
-    "uaup-js": "^0.0.22",
-    "axios": "^1.6.2",
-    "cross-spawn": "^7.0.3"
+    "@tauri-apps/api": "2.0.0-beta.0",
+    "@tauri-apps/plugin-shell": "^2.0.0-beta.0",
+    "@types/howler": "^2.2.11",
+    "clsx": "^2.1.0",
+    "framer-motion": "^11.0.3",
+    "howler": "^2.2.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "^2.2.1"
   },
-  "description": "Installer for Enhanced RVC Variant named Applio, now more easy, simple and fast.",
   "devDependencies": {
-    "axios": "^1.6.2",
-    "cross-spawn": "^7.0.3",
-    "electron": "^26.2.1",
-    "electron-builder": "^24.6.4"
-  },
-  "license": "MIT",
-  "main": "main.js",
-  "name": "Applio-Installer",
-  "scripts": {
-    "start": "electron .",
-    "dist": "electron-builder",
-    "postinstall": "electron-builder install-app-deps"
-  },
-  "version": "5.3.5"
+    "@tauri-apps/cli": "^2.0.0-beta.0",
+    "@types/node": "^20.11.17",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.0.2",
+    "vite": "^5.0.0"
+  }
 }
-
